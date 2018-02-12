@@ -35,6 +35,7 @@ class MusicListViewController: UIViewController {
         MusicDataTool.fetchMusic { [weak self] (musics) in
             guard let `self` = self else {return}
             self.musicList = musics
+            MusicOperationTool.shared.musicMs = musics
         }
     }
 
@@ -48,5 +49,12 @@ extension MusicListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(type: MusicListCell.self, forIndexPath: indexPath)
         cell.show(musicInfo: musicList[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = self.musicList[indexPath.row]
+        MusicOperationTool.shared.playMusic(with: model)
+        let vc = MusicDetailViewController(nibName: "MusicDetailViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
