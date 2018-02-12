@@ -23,5 +23,6 @@ class MusicDataTool: NSObject {
         models = array.flatMap{
             return MusicModel(with: $0)
         }
+        result(models)
     }
 }

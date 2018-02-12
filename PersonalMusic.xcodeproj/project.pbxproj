@@ -56,6 +56,10 @@
 		B21ECB8E20313EBA0017CB94 /* Musics.plist in Resources */ = {isa = PBXBuildFile; fileRef = B21ECB6520313EBA0017CB94 /* Musics.plist */; };
 		B21ECB9120313F340017CB94 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB9020313F340017CB94 /* MusicModel.swift */; };
 		B21ECB9320313FCC0017CB94 /* Value_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB9220313FCC0017CB94 /* Value_Extension.swift */; };
+		B21ECB962031613F0017CB94 /* MusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB942031613F0017CB94 /* MusicListCell.swift */; };
+		B21ECB972031613F0017CB94 /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21ECB952031613F0017CB94 /* MusicListCell.xib */; };
+		B21ECB99203162F50017CB94 /* UITableView_Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB98203162F50017CB94 /* UITableView_Register.swift */; };
+		B21ECB9B2031635B0017CB94 /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB9A2031635B0017CB94 /* String_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +113,10 @@
 		B21ECB6520313EBA0017CB94 /* Musics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Musics.plist; sourceTree = "<group>"; };
 		B21ECB9020313F340017CB94 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		B21ECB9220313FCC0017CB94 /* Value_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value_Extension.swift; sourceTree = "<group>"; };
+		B21ECB942031613F0017CB94 /* MusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCell.swift; sourceTree = "<group>"; };
+		B21ECB952031613F0017CB94 /* MusicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListCell.xib; sourceTree = "<group>"; };
+		B21ECB98203162F50017CB94 /* UITableView_Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView_Register.swift; sourceTree = "<group>"; };
+		B21ECB9A2031635B0017CB94 /* String_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +215,8 @@
 		B21ECB2C20304BBF0017CB94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B21ECB942031613F0017CB94 /* MusicListCell.swift */,
+				B21ECB952031613F0017CB94 /* MusicListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				B21ECB9220313FCC0017CB94 /* Value_Extension.swift */,
+				B21ECB9A2031635B0017CB94 /* String_Extension.swift */,
+				B21ECB98203162F50017CB94 /* UITableView_Register.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -409,6 +421,7 @@
 				B21ECB7120313EBA0017CB94 /* jay@2x.jpg in Resources */,
 				B21ECB7B20313EBA0017CB94 /* eason_icon@2x.jpg in Resources */,
 				B21ECB6920313EBA0017CB94 /* 10736444.lrc in Resources */,
+				B21ECB972031613F0017CB94 /* MusicListCell.xib in Resources */,
 				B21ECB7520313EBA0017CB94 /* zxy@2x.jpg in Resources */,
 				B21ECB6720313EBA0017CB94 /* 255319.lrc in Resources */,
 				B21ECB8E20313EBA0017CB94 /* Musics.plist in Resources */,
@@ -461,9 +474,12 @@
 			files = (
 				B21ECB9320313FCC0017CB94 /* Value_Extension.swift in Sources */,
 				B21ECB3320304C060017CB94 /* MusicListViewController.swift in Sources */,
+				B21ECB99203162F50017CB94 /* UITableView_Register.swift in Sources */,
 				B21ECB9120313F340017CB94 /* MusicModel.swift in Sources */,
+				B21ECB9B2031635B0017CB94 /* String_Extension.swift in Sources */,
 				B21ECB142030483F0017CB94 /* AppDelegate.swift in Sources */,
 				B21ECB3820313DE60017CB94 /* MusicDataTool.swift in Sources */,
+				B21ECB962031613F0017CB94 /* MusicListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

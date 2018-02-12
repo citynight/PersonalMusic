@@ -10,26 +10,43 @@ import UIKit
 
 class MusicListViewController: UIViewController {
 
+    // MARK: - 数据
+    private var musicList:[MusicModel] = [MusicModel]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    // UI
+    private lazy var tableView: UITableView = {
+       let tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerNibFromClass(type: MusicListCell.self)
+        tableView.rowHeight = 80
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.red
-        // Do any additional setup after loading the view.
+        title = "Music List"
+        view.addSubview(tableView)
+        MusicDataTool.fetchMusic { [weak self] (musics) in
+            guard let `self` = self else {return}
+            self.musicList = musics
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+extension MusicListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return musicList.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(type: MusicListCell.self, forIndexPath: indexPath)
+        cell.show(musicInfo: musicList[indexPath.row])
+        return cell
     }
-    */
-
 }
