@@ -17,6 +17,7 @@
                 <outlet property="centerImageView" destination="zM2-E1-A8O" id="yCe-Od-0JL"/>
                 <outlet property="costTimeLabel" destination="VgU-gE-K8J" id="JrV-ld-4eG"/>
                 <outlet property="playOrPauseBtn" destination="aZR-1a-uks" id="0WC-yL-Ljh"/>
+                <outlet property="progressSlider" destination="dm6-du-MQa" id="CPo-Ya-WyH"/>
                 <outlet property="totalTimeLabel" destination="7NM-WF-q4s" id="xci-gv-clG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

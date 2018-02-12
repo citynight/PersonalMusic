@@ -65,6 +65,7 @@
 		B294BC51203195D500FDF993 /* AudioTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC50203195D500FDF993 /* AudioTool.swift */; };
 		B294BC532031C2B800FDF993 /* MusicOperationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC522031C2B800FDF993 /* MusicOperationTool.swift */; };
 		B294BC552031D84100FDF993 /* TimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC542031D84100FDF993 /* TimeTool.swift */; };
+		B294BC572031DD7E00FDF993 /* CALayer_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC562031DD7E00FDF993 /* CALayer_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		B294BC50203195D500FDF993 /* AudioTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTool.swift; sourceTree = "<group>"; };
 		B294BC522031C2B800FDF993 /* MusicOperationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicOperationTool.swift; sourceTree = "<group>"; };
 		B294BC542031D84100FDF993 /* TimeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTool.swift; sourceTree = "<group>"; };
+		B294BC562031DD7E00FDF993 /* CALayer_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 				B21ECB9220313FCC0017CB94 /* Value_Extension.swift */,
 				B21ECB9A2031635B0017CB94 /* String_Extension.swift */,
 				B21ECB98203162F50017CB94 /* UITableView_Register.swift */,
+				B294BC562031DD7E00FDF993 /* CALayer_Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				B294BC51203195D500FDF993 /* AudioTool.swift in Sources */,
 				B21ECB9B2031635B0017CB94 /* String_Extension.swift in Sources */,
 				B21ECB142030483F0017CB94 /* AppDelegate.swift in Sources */,
+				B294BC572031DD7E00FDF993 /* CALayer_Extension.swift in Sources */,
 				B21ECB9E203170460017CB94 /* MusicDetailViewController.swift in Sources */,
 				B21ECB3820313DE60017CB94 /* MusicDataTool.swift in Sources */,
 				B294BC552031D84100FDF993 /* TimeTool.swift in Sources */,
