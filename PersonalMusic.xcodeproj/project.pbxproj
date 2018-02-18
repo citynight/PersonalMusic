@@ -10,7 +10,6 @@
 		B21ECB142030483F0017CB94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB132030483F0017CB94 /* AppDelegate.swift */; };
 		B21ECB1B2030483F0017CB94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21ECB1A2030483F0017CB94 /* Assets.xcassets */; };
 		B21ECB1E2030483F0017CB94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21ECB1C2030483F0017CB94 /* LaunchScreen.storyboard */; };
-		B21ECB3120304BC00017CB94 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B21ECB2820304BBF0017CB94 /* Info.plist */; };
 		B21ECB3320304C060017CB94 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB3220304C060017CB94 /* MusicListViewController.swift */; };
 		B21ECB3820313DE60017CB94 /* MusicDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ECB3720313DE60017CB94 /* MusicDataTool.swift */; };
 		B21ECB6620313EBA0017CB94 /* 月半小夜曲.lrc in Resources */ = {isa = PBXBuildFile; fileRef = B21ECB3B20313EBA0017CB94 /* 月半小夜曲.lrc */; };
@@ -472,7 +471,6 @@
 				B21ECB8B20313EBA0017CB94 /* 120125029.mp3 in Resources */,
 				B21ECB8620313EBA0017CB94 /* 235319.mp3 in Resources */,
 				B21ECB1B2030483F0017CB94 /* Assets.xcassets in Resources */,
-				B21ECB3120304BC00017CB94 /* Info.plist in Resources */,
 				B21ECB8220313EBA0017CB94 /* zxy_icon@2x.jpg in Resources */,
 				B21ECB8520313EBA0017CB94 /* 255319.mp3 in Resources */,
 				B21ECB7620313EBA0017CB94 /* kzxd_icon@2x.jpg in Resources */,
