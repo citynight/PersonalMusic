@@ -8,7 +8,7 @@
 
 import Foundation
 
-class XMGLrcDataTool {
+class LrcDataTool {
     class func getLrcModelsWithFileName(_ fileName: String) -> [LrcModel]{
         // 用于存储歌词数据模型的数组
         var lrcMs = [LrcModel]()

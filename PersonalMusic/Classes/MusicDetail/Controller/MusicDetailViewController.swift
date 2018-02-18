@@ -23,6 +23,7 @@ class MusicDetailViewController: UIViewController {
     
     @IBOutlet weak var progressSlider: UISlider!
     
+    @IBOutlet weak var lrcLabel: UILabel!
     
     @IBAction func playOrPause(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -82,6 +83,7 @@ class MusicDetailViewController: UIViewController {
     private var updateLrcLink: CADisplayLink?
     // 负责更新很多次的timer
     private var updateTimer: Timer?
+    private var lrcMs:[LrcModel] = []
 }
 extension MusicDetailViewController {
     func configNav() {
@@ -104,6 +106,7 @@ extension MusicDetailViewController {
             return
         }
         title = musicModel.name
+        lrcMs = LrcDataTool.getLrcModelsWithFileName(musicModel.lrcname)
         self.backImageView.image = UIImage(named:musicModel.icon)
         self.centerImageView.image = UIImage(named:musicModel.icon)
         self.totalTimeLabel.text = TimeTool.getFormatTime(timeInterval: messageModel.totalTime)
@@ -146,7 +149,12 @@ extension MusicDetailViewController {
 @objc
 extension MusicDetailViewController {
     private func updateLrc() {
-        print("执行到这里了")
+        let messageModel = MusicOperationTool.shared.getMusicMsgModel()
+        let time = messageModel.costTime
+        let lrcM = LrcDataTool.getCurrentLrcM(currentTime: time, lrcMs: lrcMs).lrcM
+        
+        lrcLabel.text = lrcM?.lrcText
+        
     }
     private func setUpTimes() {
         let messageModel = MusicOperationTool.shared.getMusicMsgModel()
