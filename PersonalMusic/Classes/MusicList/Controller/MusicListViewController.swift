@@ -31,6 +31,8 @@ class MusicListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Music List"
+        configNav()
+        view.backgroundColor = UIColor.white
         view.addSubview(tableView)
         MusicDataTool.fetchMusic { [weak self] (musics) in
             guard let `self` = self else {return}
@@ -38,8 +40,25 @@ class MusicListViewController: UIViewController {
             MusicOperationTool.shared.musicMs = musics
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configNav()
+    }
 
 }
+
+extension MusicListViewController {
+    func configNav() {
+        self.navigationController?.setNavigationAlpha(1)
+        self.navigationController?.setTitleColor(UIColor.black)
+
+    }
+}
+
 extension MusicListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return musicList.count

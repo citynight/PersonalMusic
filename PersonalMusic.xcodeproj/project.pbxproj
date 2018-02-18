@@ -65,6 +65,10 @@
 		B294BC532031C2B800FDF993 /* MusicOperationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC522031C2B800FDF993 /* MusicOperationTool.swift */; };
 		B294BC552031D84100FDF993 /* TimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC542031D84100FDF993 /* TimeTool.swift */; };
 		B294BC572031DD7E00FDF993 /* CALayer_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC562031DD7E00FDF993 /* CALayer_Extension.swift */; };
+		B294BC5B2039956A00FDF993 /* UINavigationController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC5A2039956A00FDF993 /* UINavigationController_Extension.swift */; };
+		B294BC5D2039A73700FDF993 /* TargetProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC5C2039A73700FDF993 /* TargetProxy.swift */; };
+		B294BC5F2039B49A00FDF993 /* LrcDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */; };
+		B294BC612039B50F00FDF993 /* LrcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC602039B50F00FDF993 /* LrcModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +132,10 @@
 		B294BC522031C2B800FDF993 /* MusicOperationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicOperationTool.swift; sourceTree = "<group>"; };
 		B294BC542031D84100FDF993 /* TimeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTool.swift; sourceTree = "<group>"; };
 		B294BC562031DD7E00FDF993 /* CALayer_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer_Extension.swift; sourceTree = "<group>"; };
+		B294BC5A2039956A00FDF993 /* UINavigationController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController_Extension.swift; sourceTree = "<group>"; };
+		B294BC5C2039A73700FDF993 /* TargetProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetProxy.swift; sourceTree = "<group>"; };
+		B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcDataTool.swift; sourceTree = "<group>"; };
+		B294BC602039B50F00FDF993 /* LrcModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +278,7 @@
 			children = (
 				B294BC50203195D500FDF993 /* AudioTool.swift */,
 				B294BC522031C2B800FDF993 /* MusicOperationTool.swift */,
+				B294BC5C2039A73700FDF993 /* TargetProxy.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -281,6 +290,7 @@
 				B21ECB9A2031635B0017CB94 /* String_Extension.swift */,
 				B21ECB98203162F50017CB94 /* UITableView_Register.swift */,
 				B294BC562031DD7E00FDF993 /* CALayer_Extension.swift */,
+				B294BC5A2039956A00FDF993 /* UINavigationController_Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -291,6 +301,7 @@
 				B21ECB8F20313F020017CB94 /* Model */,
 				B21ECB3720313DE60017CB94 /* MusicDataTool.swift */,
 				B294BC542031D84100FDF993 /* TimeTool.swift */,
+				B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */,
 			);
 			path = DataTool;
 			sourceTree = "<group>";
@@ -371,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				B21ECB9020313F340017CB94 /* MusicModel.swift */,
+				B294BC602039B50F00FDF993 /* LrcModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,6 +420,11 @@
 					B21ECB0F2030483E0017CB94 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -489,12 +506,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B294BC612039B50F00FDF993 /* LrcModel.swift in Sources */,
 				B21ECB9320313FCC0017CB94 /* Value_Extension.swift in Sources */,
+				B294BC5B2039956A00FDF993 /* UINavigationController_Extension.swift in Sources */,
 				B21ECB3320304C060017CB94 /* MusicListViewController.swift in Sources */,
 				B294BC532031C2B800FDF993 /* MusicOperationTool.swift in Sources */,
 				B21ECB99203162F50017CB94 /* UITableView_Register.swift in Sources */,
+				B294BC5F2039B49A00FDF993 /* LrcDataTool.swift in Sources */,
 				B21ECB9120313F340017CB94 /* MusicModel.swift in Sources */,
 				B294BC51203195D500FDF993 /* AudioTool.swift in Sources */,
+				B294BC5D2039A73700FDF993 /* TargetProxy.swift in Sources */,
 				B21ECB9B2031635B0017CB94 /* String_Extension.swift in Sources */,
 				B21ECB142030483F0017CB94 /* AppDelegate.swift in Sources */,
 				B294BC572031DD7E00FDF993 /* CALayer_Extension.swift in Sources */,

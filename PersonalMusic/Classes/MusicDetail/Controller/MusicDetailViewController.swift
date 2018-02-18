@@ -48,20 +48,50 @@ class MusicDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        configNav()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateMusicInfo()
+        addTimer()
+        addLink()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configNav()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeTimer()
+        removeLink()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.centerImageView.layer.cornerRadius = self.centerImageView.frame.width * 0.5
     }
+    deinit {
+        print("释放")
+    }
+    
+    //MARK: - Private
+    // 负责更新歌词的link
+    private var updateLrcLink: CADisplayLink?
+    // 负责更新很多次的timer
+    private var updateTimer: Timer?
 }
 extension MusicDetailViewController {
+    func configNav() {
+        self.navigationController?.setNavigationAlpha(0)
+        self.navigationController?.setTitleColor(UIColor.white)
+
+    }
     func setupUI() {
+        self.view.backgroundColor = UIColor.white
+                
         self.centerImageView.layer.masksToBounds = true
         self.centerImageView.layer.borderColor = UIColor.lightGray.cgColor
         self.centerImageView.layer.borderWidth = 6
@@ -87,6 +117,46 @@ extension MusicDetailViewController {
         }
     }
     
+}
+
+extension MusicDetailViewController {
+    func addLink() {
+        let target = TargetProxy(target: self, selector: #selector(updateLrc))
+        updateLrcLink = CADisplayLink(target: target, selector:  #selector(target.execute))
+        updateLrcLink?.add(to: RunLoop.current, forMode: .commonModes)
+    }
+
+    func removeLink() -> () {
+        updateLrcLink?.invalidate()
+        updateLrcLink = nil
+    }
+
+    func addTimer() {
+        let target = TargetProxy(target: self, selector: #selector(setUpTimes))
+        updateTimer = Timer(timeInterval: 1, target: target, selector: #selector(target.execute), userInfo: nil, repeats: true)
+        RunLoop.current.add(updateTimer!, forMode: .commonModes)
+    }
+    
+    func removeTimer() {
+        updateTimer?.invalidate()
+        updateTimer = nil
+    }
+}
+
+@objc
+extension MusicDetailViewController {
+    private func updateLrc() {
+        print("执行到这里了")
+    }
+    private func setUpTimes() {
+        let messageModel = MusicOperationTool.shared.getMusicMsgModel()
+        costTimeLabel.text = TimeTool.getFormatTime(timeInterval: messageModel.costTime)
+        progressSlider.value = Float(messageModel.costTime / messageModel.totalTime)
+        playOrPauseBtn.isSelected = messageModel.isPlaying
+    }
+}
+
+extension MusicDetailViewController {
     /// 开始旋转
     func beginRotation() {
         centerImageView.layer.removeAnimation(forKey: "rotation")
@@ -99,7 +169,6 @@ extension MusicDetailViewController {
         centerImageView.layer.add(animation, forKey: "rotation")
     }
     
-    
     /// 暂停旋转(此处的实现, 是使用到了一个CALayer分类, 来暂停核心动画)
     func pauseRotation() {
         centerImageView.layer.pauseAnimate()
@@ -107,4 +176,5 @@ extension MusicDetailViewController {
     func resumeRotation() {
         centerImageView.layer.resumeAnimate()
     }
+
 }
