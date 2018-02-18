@@ -70,8 +70,10 @@ extension MusicDetailViewController {
     func updateMusicInfo() {
         let messageModel = MusicOperationTool.shared.getMusicMsgModel()
         guard let musicModel = messageModel.musicM else {
+            title = ""
             return
         }
+        title = musicModel.name
         self.backImageView.image = UIImage(named:musicModel.icon)
         self.centerImageView.image = UIImage(named:musicModel.icon)
         self.totalTimeLabel.text = TimeTool.getFormatTime(timeInterval: messageModel.totalTime)
