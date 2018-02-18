@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav = UINavigationController(rootViewController:
             MusicListViewController())
-        
+        nav.navigationBar.prefersLargeTitles = true
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

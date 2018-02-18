@@ -22,6 +22,8 @@ class MusicDetailViewController: UIViewController {
     @IBOutlet weak var centerImageView: UIImageView!
     
     @IBOutlet weak var progressSlider: UISlider!
+    
+    
     @IBAction func playOrPause(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
@@ -35,18 +37,24 @@ class MusicDetailViewController: UIViewController {
     }
     @IBAction func preMusic() {
         MusicOperationTool.shared.preMusic()
+        updateMusicInfo()
     }
     
     @IBAction func nextMusic() {
         MusicOperationTool.shared.nextMusic()
+        updateMusicInfo()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        updateMusicInfo()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateMusicInfo()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.centerImageView.layer.cornerRadius = self.centerImageView.frame.width * 0.5
