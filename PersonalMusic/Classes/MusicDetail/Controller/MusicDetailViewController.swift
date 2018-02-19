@@ -46,6 +46,23 @@ class MusicDetailViewController: UIViewController {
         updateMusicInfo()
     }
     
+    @IBAction func touchDown(_ sender: UISlider) {
+        removeTimer()
+    }
+    
+    @IBAction func touchUp(_ sender: UISlider) {
+        addTimer()
+        let messageModel = MusicOperationTool.shared.getMusicMsgModel()
+        let currentTime = messageModel.totalTime * Double(self.progressSlider.value)
+        MusicOperationTool.shared.seekToTimeInterval(currentTime)
+    }
+    @IBAction func valueChange(_ sender: UISlider) {
+        let messageModel = MusicOperationTool.shared.getMusicMsgModel()
+        let currentTime = messageModel.totalTime * Double(self.progressSlider.value)
+        MusicOperationTool.shared.seekToTimeInterval(currentTime)
+        costTimeLabel.text = TimeTool.getFormatTime(timeInterval: currentTime)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -124,6 +141,9 @@ extension MusicDetailViewController {
 
 extension MusicDetailViewController {
     func addLink() {
+        if updateLrcLink != nil {
+            return
+        }
         let target = TargetProxy(target: self, selector: #selector(updateLrc))
         updateLrcLink = CADisplayLink(target: target, selector:  #selector(target.execute))
         updateLrcLink?.add(to: RunLoop.current, forMode: .commonModes)
@@ -135,6 +155,9 @@ extension MusicDetailViewController {
     }
 
     func addTimer() {
+        if updateTimer != nil {
+            return
+        }
         let target = TargetProxy(target: self, selector: #selector(setUpTimes))
         updateTimer = Timer(timeInterval: 1, target: target, selector: #selector(target.execute), userInfo: nil, repeats: true)
         RunLoop.current.add(updateTimer!, forMode: .commonModes)

@@ -97,6 +97,14 @@ class MusicOperationTool: NSObject {
     func updateLockScreenMessage() {
         
     }
+    
+    /// 设置播放的进度
+    ///
+    /// - Parameter currentTime: 当前播放时间
+    func seekToTimeInterval(_ currentTime: TimeInterval) {
+        audioTool.seekToTimeInterval(with: currentTime)
+    }
+    
     /*
      /**
      *  更新锁屏信息

@@ -92,6 +92,11 @@
                                 <constraint firstAttribute="height" constant="30" id="xoO-1b-R1b"/>
                             </constraints>
                             <color key="minimumTrackTintColor" red="0.0" green="0.66612810860000005" blue="0.0013801952190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="touchDown:" destination="-1" eventType="touchDown" id="o35-ET-mUL"/>
+                                <action selector="touchUp:" destination="-1" eventType="touchUpInside" id="YOR-pv-WyU"/>
+                                <action selector="valueChange:" destination="-1" eventType="valueChanged" id="y7f-VE-RhJ"/>
+                            </connections>
                         </slider>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,14 +118,14 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jay.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zM2-E1-A8O">
-                    <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                    <rect key="frame" x="87.5" y="173.5" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="zM2-E1-A8O" secondAttribute="height" multiplier="1:1" id="SVx-HS-gFG"/>
                         <constraint firstAttribute="width" constant="200" id="ieR-dE-2Dz"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVE-va-qfs">
-                    <rect key="frame" x="166" y="463" width="42" height="20.5"/>
+                    <rect key="frame" x="166" y="403" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -140,7 +145,7 @@
                 <constraint firstItem="zM2-E1-A8O" firstAttribute="centerX" secondItem="1hq-d1-k59" secondAttribute="centerX" id="hdc-9m-Hty"/>
                 <constraint firstItem="eVE-va-qfs" firstAttribute="top" secondItem="zM2-E1-A8O" secondAttribute="bottom" constant="30" id="jd9-Lv-c0l"/>
                 <constraint firstItem="eVE-va-qfs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oaU-bc-WqG"/>
-                <constraint firstItem="zM2-E1-A8O" firstAttribute="centerY" secondItem="1hq-d1-k59" secondAttribute="centerY" id="rRk-cb-4x6"/>
+                <constraint firstItem="zM2-E1-A8O" firstAttribute="centerY" secondItem="1hq-d1-k59" secondAttribute="centerY" constant="-60" id="rRk-cb-4x6"/>
                 <constraint firstItem="1hq-d1-k59" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sdR-hX-drh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JN9-uU-LEg" secondAttribute="trailing" id="vKJ-LE-NRz"/>
             </constraints>
