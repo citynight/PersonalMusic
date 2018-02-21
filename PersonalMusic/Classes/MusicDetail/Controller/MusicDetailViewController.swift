@@ -25,6 +25,9 @@ class MusicDetailViewController: UIViewController {
     
     @IBOutlet weak var lrcLabel: UILabel!
     
+    /// 指针
+    @IBOutlet weak var needleView: UIImageView!
+    
     @IBAction func playOrPause(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
@@ -198,14 +201,56 @@ extension MusicDetailViewController {
         animation.isRemovedOnCompletion = false
         animation.repeatCount = MAXFLOAT
         centerImageView.layer.add(animation, forKey: "rotation")
+        
+        played(with: true)
     }
     
     /// 暂停旋转(此处的实现, 是使用到了一个CALayer分类, 来暂停核心动画)
     func pauseRotation() {
         centerImageView.layer.pauseAnimate()
+        pushed(with: true)
     }
     func resumeRotation() {
         centerImageView.layer.resumeAnimate()
+        played(with: true)
     }
 
+    // MARK: - 指针动画
+    
+    /// 播放音乐时，指针恢复，图片旋转
+    ///
+    /// - Parameter animated: 是否显示动画效果
+    func played(with animated:Bool) {
+        
+        setAnchor(point: CGPoint(x: 25.0/97, y: 25.0/153), forView: needleView)
+        if animated {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.needleView.transform = .identity
+            })
+        }else {
+            self.needleView.transform = .identity
+        }
+    }
+    
+    ///  停止音乐时，指针旋转-30°，图片停止旋转
+    ///
+    /// - Parameter animated: 是否显示动画效果
+    func pushed(with animated: Bool) {
+        setAnchor(point: CGPoint(x: 25.0/97, y: 25.0/153), forView: needleView)
+        if animated {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.needleView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/6))
+            })
+        }else {
+            self.needleView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/6))
+        }
+    }
+    
+    private func setAnchor(point anchorPoint: CGPoint, forView view:UIView) {
+        let oldOrigin = view.frame.origin
+        view.layer.anchorPoint = anchorPoint
+        let newOrigin = view.frame.origin
+        let transition = CGPoint(x: newOrigin.x - oldOrigin.x, y: newOrigin.y - oldOrigin.y)
+        view.center = CGPoint(x: view.center.x - transition.x, y: view.center.y - transition.y)
+    }
 }
