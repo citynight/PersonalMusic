@@ -104,6 +104,9 @@ class MusicDetailViewController: UIViewController {
     // 负责更新很多次的timer
     private var updateTimer: Timer?
     private var lrcMs:[LrcModel] = []
+    
+    /// 第几句歌词
+    private var lrcRow = 0
 }
 extension MusicDetailViewController {
     func configNav() {
@@ -120,6 +123,7 @@ extension MusicDetailViewController {
         progressSlider.setThumbImage(UIImage(named:"player_slider_playback_thumb"), for: .normal)
     }
     func updateMusicInfo() {
+        lrcLabel.text = ""
         let messageModel = MusicOperationTool.shared.getMusicMsgModel()
         guard let musicModel = messageModel.musicM else {
             title = ""
@@ -177,8 +181,12 @@ extension MusicDetailViewController {
     private func updateLrc() {
         let messageModel = MusicOperationTool.shared.getMusicMsgModel()
         let time = messageModel.costTime
-        let lrcM = LrcDataTool.getCurrentLrcM(currentTime: time, lrcMs: lrcMs).lrcM
-        
+        let trouble = LrcDataTool.getCurrentLrcM(currentTime: time, lrcMs: lrcMs)
+        if trouble.row == lrcRow && !lrcLabel.text!.isEmpty {
+            return
+        }
+        let lrcM = trouble.lrcM
+        lrcRow = trouble.row
         lrcLabel.text = lrcM?.lrcText
         
         MusicOperationTool.shared.updateLockScreenMessage()
