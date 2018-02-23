@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class MusicMessageModel: NSObject {
     /// 当前正在播放的音乐数据模型
@@ -94,8 +95,53 @@ class MusicOperationTool: NSObject {
     }
     
     /// 更新锁屏信息
-    func updateLockScreenMessage() {
+    func updateLockScreenMessage(with lrcText:String?, lrcModel:LrcModel) {
+        // 取出需要展示的数据模型
+        let musicMessageM = getMusicMsgModel()
+        // 1. 获取锁屏中心
+        let center = MPNowPlayingInfoCenter.default()
         
+        // 2. 给锁屏中心赋值
+        let musicName = musicMessageM.musicM?.name ?? ""
+        let singerName = musicMessageM.musicM?.singer ?? ""
+        let costTime = musicMessageM.costTime
+        let totalTime = musicMessageM.totalTime
+        let imageName = musicMessageM.musicM?.icon ?? ""
+        
+        // 1. 获取当前正在播放的歌词
+        
+        let lrcFileName = musicMessageM.musicM?.lrcname ?? ""
+        let lrcMs = LrcDataTool.getLrcModelsWithFileName(lrcFileName)
+        let lrcMRow = LrcDataTool.getCurrentLrcM(currentTime: musicMessageM.costTime, lrcMs: lrcMs)
+        let lrcM = lrcMRow.lrcM
+        
+        // 1 60
+        
+        print(lrcM?.lrcText)
+        
+        // 2. 绘制到图片, 生成一个新的图片
+        
+        let placehoulder =  UIImage(named:"lkq.jpg")!
+        let resultImage = ImageTool.creatImage(with: lrcM?.lrcText ?? "", inImage: UIImage(named: imageName) ?? placehoulder) ?? placehoulder
+        
+        // 3. 设置专辑图片
+        let artwork = MPMediaItemArtwork.init(boundsSize: resultImage.size, requestHandler: { (size) -> UIImage in
+            return resultImage
+        })
+
+        let dic: NSMutableDictionary = [
+            MPMediaItemPropertyAlbumTitle: musicName,
+            MPMediaItemPropertyArtist: singerName,
+            MPMediaItemPropertyPlaybackDuration: totalTime,
+            MPNowPlayingInfoPropertyElapsedPlaybackTime: costTime,
+            MPMediaItemPropertyArtwork: artwork
+        ]
+        
+        let dicCopy = dic.copy()
+        center.nowPlayingInfo = dicCopy as? [String: AnyObject]
+        
+        // 3. 接收远程事件
+        UIApplication.shared.beginReceivingRemoteControlEvents()
     }
     
     /// 设置播放的进度
@@ -110,11 +156,6 @@ class MusicOperationTool: NSObject {
      *  更新锁屏信息
      */
      - (void)updateLockScreenMessage;
-     
-     /**
-     *  设置播放的进度
-     */
-     - (void)seekToTimeInterval:(NSTimeInterval)currentTime;
      
      /**
      *  设置代理, 用于传递音乐播放完成的事件给外界

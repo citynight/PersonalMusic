@@ -181,6 +181,7 @@ extension MusicDetailViewController {
         
         lrcLabel.text = lrcM?.lrcText
         
+        MusicOperationTool.shared.updateLockScreenMessage()
     }
     private func setUpTimes() {
         let messageModel = MusicOperationTool.shared.getMusicMsgModel()

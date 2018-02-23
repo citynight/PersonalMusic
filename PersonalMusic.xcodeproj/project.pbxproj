@@ -69,6 +69,7 @@
 		B294BC5D2039A73700FDF993 /* TargetProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC5C2039A73700FDF993 /* TargetProxy.swift */; };
 		B294BC5F2039B49A00FDF993 /* LrcDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */; };
 		B294BC612039B50F00FDF993 /* LrcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC602039B50F00FDF993 /* LrcModel.swift */; };
+		B294BC63203DB0A400FDF993 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC62203DB0A400FDF993 /* ImageTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		B294BC5C2039A73700FDF993 /* TargetProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetProxy.swift; sourceTree = "<group>"; };
 		B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcDataTool.swift; sourceTree = "<group>"; };
 		B294BC602039B50F00FDF993 /* LrcModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcModel.swift; sourceTree = "<group>"; };
+		B294BC62203DB0A400FDF993 /* ImageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 				B21ECB3720313DE60017CB94 /* MusicDataTool.swift */,
 				B294BC542031D84100FDF993 /* TimeTool.swift */,
 				B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */,
+				B294BC62203DB0A400FDF993 /* ImageTool.swift */,
 			);
 			path = DataTool;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				B294BC5B2039956A00FDF993 /* UINavigationController_Extension.swift in Sources */,
 				B21ECB3320304C060017CB94 /* MusicListViewController.swift in Sources */,
 				B294BC532031C2B800FDF993 /* MusicOperationTool.swift in Sources */,
+				B294BC63203DB0A400FDF993 /* ImageTool.swift in Sources */,
 				B21ECB99203162F50017CB94 /* UITableView_Register.swift in Sources */,
 				B294BC5F2039B49A00FDF993 /* LrcDataTool.swift in Sources */,
 				B21ECB9120313F340017CB94 /* MusicModel.swift in Sources */,
