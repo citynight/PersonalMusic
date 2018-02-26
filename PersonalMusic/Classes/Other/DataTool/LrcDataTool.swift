@@ -77,7 +77,8 @@ class LrcDataTool {
     class func getCurrentLrcM(currentTime: TimeInterval, lrcMs: [LrcModel]) -> (row: Int, lrcM: LrcModel?) {
         var index = 0
         for lrcM  in lrcMs {
-            if  currentTime >= lrcM.beginTime && currentTime < lrcM.endTime {
+            let endTime = lrcM.endTime == 0 ? Double(Int.max) : lrcM.endTime
+            if  currentTime >= lrcM.beginTime && currentTime < endTime {
                 return (index, lrcM)
             }
             index += 1
