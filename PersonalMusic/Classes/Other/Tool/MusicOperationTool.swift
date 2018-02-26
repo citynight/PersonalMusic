@@ -122,7 +122,8 @@ class MusicOperationTool: NSObject {
         // 2. 绘制到图片, 生成一个新的图片
         
         let placehoulder =  UIImage(named:"lkq.jpg")!
-        let resultImage = ImageTool.creatImage(with: lrcText, inImage: UIImage(named: imageName) ?? placehoulder) ?? placehoulder
+        let resultImage = UIImage(named: imageName) ?? placehoulder
+//        ImageTool.creatImage(with: lrcText, inImage: UIImage(named: imageName) ?? placehoulder) ?? placehoulder
         
         // 3. 设置专辑图片
         let artwork = MPMediaItemArtwork.init(boundsSize: resultImage.size, requestHandler: { (size) -> UIImage in

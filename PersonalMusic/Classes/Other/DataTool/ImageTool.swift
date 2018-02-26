@@ -15,7 +15,6 @@ class ImageTool: NSObject {
         UIGraphicsBeginImageContext(size)
         
         // 2. 绘制大图片
-        
         image.draw(in: CGRect(origin: .zero, size: size))
         // 3. 绘制文字
         let style = NSMutableParagraphStyle()
