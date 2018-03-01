@@ -31,9 +31,8 @@ class MusicListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Music List"
-        configNav()
-        view.backgroundColor = UIColor.white
-        view.addSubview(tableView)
+        setupUI()
+        
         MusicDataTool.fetchMusic { [weak self] (musics) in
             guard let `self` = self else {return}
             self.musicList = musics
@@ -52,10 +51,27 @@ class MusicListViewController: UIViewController {
 }
 
 extension MusicListViewController {
+    func setupUI() {
+        view.backgroundColor = UIColor.white
+        view.addSubview(tableView)
+        configNav()
+        let rightBarButtonItem = UIBarButtonItem(title: "从电脑导歌", style: .plain, target: self, action: #selector(downloadMusic))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
     func configNav() {
         self.navigationController?.setNavigationAlpha(1)
         self.navigationController?.setTitleColor(UIColor.black)
-
+    }
+    
+    @objc func downloadMusic() {
+        guard let documentsPathStr = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentationDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first else {
+            return
+        }
+        let documentsPath = documentsPathStr + "/musics"
+        if !FileManager.default.fileExists(atPath: documentsPath) {
+            try? FileManager.default.createDirectory(atPath: documentsPath, withIntermediateDirectories: true, attributes: nil)
+        }
+        print(documentsPath)
     }
 }
 
