@@ -70,7 +70,24 @@
 		B294BC5F2039B49A00FDF993 /* LrcDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */; };
 		B294BC612039B50F00FDF993 /* LrcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC602039B50F00FDF993 /* LrcModel.swift */; };
 		B294BC63203DB0A400FDF993 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC62203DB0A400FDF993 /* ImageTool.swift */; };
+		EE3D1D802048DECD000DE54F /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */; };
+		EE3D1D812048DECD000DE54F /* GCDWebServers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE3D1D8620491D2A000DE54F /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D1D8520491D2A000DE54F /* DownloadViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE3D1D822048DECD000DE54F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EE3D1D812048DECD000DE54F /* GCDWebServers.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B21ECB102030483E0017CB94 /* PersonalMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +155,8 @@
 		B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcDataTool.swift; sourceTree = "<group>"; };
 		B294BC602039B50F00FDF993 /* LrcModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcModel.swift; sourceTree = "<group>"; };
 		B294BC62203DB0A400FDF993 /* ImageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
+		EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
+		EE3D1D8520491D2A000DE54F /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3D1D802048DECD000DE54F /* GCDWebServers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +174,7 @@
 		B21ECB072030483E0017CB94 = {
 			isa = PBXGroup;
 			children = (
+				EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */,
 				B21ECB122030483E0017CB94 /* PersonalMusic */,
 				B21ECB112030483E0017CB94 /* Products */,
 			);
@@ -181,6 +202,7 @@
 		B21ECB2520304BBF0017CB94 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EE3D1D8320491D1D000DE54F /* Download */,
 				B21ECB2620304BBF0017CB94 /* Other */,
 				B21ECB2920304BBF0017CB94 /* MusicList */,
 				B21ECB2D20304BBF0017CB94 /* MusicDetail */,
@@ -390,6 +412,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EE3D1D8320491D1D000DE54F /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				EE3D1D8720491E33000DE54F /* View */,
+				EE3D1D8420491D1D000DE54F /* Controller */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		EE3D1D8420491D1D000DE54F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EE3D1D8520491D2A000DE54F /* DownloadViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EE3D1D8720491E33000DE54F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +446,7 @@
 				B21ECB0C2030483E0017CB94 /* Sources */,
 				B21ECB0D2030483E0017CB94 /* Frameworks */,
 				B21ECB0E2030483E0017CB94 /* Resources */,
+				EE3D1D822048DECD000DE54F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -517,6 +564,7 @@
 				B294BC63203DB0A400FDF993 /* ImageTool.swift in Sources */,
 				B21ECB99203162F50017CB94 /* UITableView_Register.swift in Sources */,
 				B294BC5F2039B49A00FDF993 /* LrcDataTool.swift in Sources */,
+				EE3D1D8620491D2A000DE54F /* DownloadViewController.swift in Sources */,
 				B21ECB9120313F340017CB94 /* MusicModel.swift in Sources */,
 				B294BC51203195D500FDF993 /* AudioTool.swift in Sources */,
 				B294BC5D2039A73700FDF993 /* TargetProxy.swift in Sources */,
@@ -657,6 +705,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NR8VJCLF85;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/PersonalMusic/Classes/Other/System/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -673,6 +725,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NR8VJCLF85;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/PersonalMusic/Classes/Other/System/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

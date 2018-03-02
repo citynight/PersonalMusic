@@ -55,7 +55,7 @@ extension MusicListViewController {
         view.backgroundColor = UIColor.white
         view.addSubview(tableView)
         configNav()
-        let rightBarButtonItem = UIBarButtonItem(title: "从电脑导歌", style: .plain, target: self, action: #selector(downloadMusic))
+        let rightBarButtonItem = UIBarButtonItem(title: "从电脑导歌", style: .plain, target: self, action: #selector(gotoDownload))
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     func configNav() {
@@ -63,15 +63,8 @@ extension MusicListViewController {
         self.navigationController?.setTitleColor(UIColor.black)
     }
     
-    @objc func downloadMusic() {
-        guard let documentsPathStr = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentationDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first else {
-            return
-        }
-        let documentsPath = documentsPathStr + "/musics"
-        if !FileManager.default.fileExists(atPath: documentsPath) {
-            try? FileManager.default.createDirectory(atPath: documentsPath, withIntermediateDirectories: true, attributes: nil)
-        }
-        print(documentsPath)
+    @objc func gotoDownload() {
+        self.navigationController?.pushViewController(DownloadViewController(), animated: true)
     }
 }
 
