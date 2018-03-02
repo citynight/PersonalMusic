@@ -73,6 +73,8 @@
 		EE3D1D802048DECD000DE54F /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */; };
 		EE3D1D812048DECD000DE54F /* GCDWebServers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE3D1D8620491D2A000DE54F /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D1D8520491D2A000DE54F /* DownloadViewController.swift */; };
+		EE3D1D8920493ED4000DE54F /* DownloadTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D1D8820493ED4000DE54F /* DownloadTipView.swift */; };
+		EE3D1D8B20493EE3000DE54F /* DownloadTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE3D1D8A20493EE3000DE54F /* DownloadTipView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,6 +159,8 @@
 		B294BC62203DB0A400FDF993 /* ImageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
 		EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
 		EE3D1D8520491D2A000DE54F /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		EE3D1D8820493ED4000DE54F /* DownloadTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTipView.swift; sourceTree = "<group>"; };
+		EE3D1D8A20493EE3000DE54F /* DownloadTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTipView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +436,8 @@
 		EE3D1D8720491E33000DE54F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE3D1D8820493ED4000DE54F /* DownloadTipView.swift */,
+				EE3D1D8A20493EE3000DE54F /* DownloadTipView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				B21ECB8820313EBA0017CB94 /* 10736444.mp3 in Resources */,
 				B21ECB7D20313EBA0017CB94 /* bb@2x.jpg in Resources */,
 				B21ECB7020313EBA0017CB94 /* wf@2x.jpg in Resources */,
+				EE3D1D8B20493EE3000DE54F /* DownloadTipView.xib in Resources */,
 				B21ECB7920313EBA0017CB94 /* lkq@2x.jpg in Resources */,
 				B21ECB8720313EBA0017CB94 /* 309769.mp3 in Resources */,
 				B21ECB6B20313EBA0017CB94 /* 235319.lrc in Resources */,
@@ -560,6 +567,7 @@
 				B21ECB9320313FCC0017CB94 /* Value_Extension.swift in Sources */,
 				B294BC5B2039956A00FDF993 /* UINavigationController_Extension.swift in Sources */,
 				B21ECB3320304C060017CB94 /* MusicListViewController.swift in Sources */,
+				EE3D1D8920493ED4000DE54F /* DownloadTipView.swift in Sources */,
 				B294BC532031C2B800FDF993 /* MusicOperationTool.swift in Sources */,
 				B294BC63203DB0A400FDF993 /* ImageTool.swift in Sources */,
 				B21ECB99203162F50017CB94 /* UITableView_Register.swift in Sources */,
