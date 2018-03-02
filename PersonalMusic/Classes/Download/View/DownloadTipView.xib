@@ -57,6 +57,9 @@
                     <state key="normal" title="关闭">
                         <color key="titleColor" red="0.92665350440000005" green="0.082465939220000006" blue="0.045782543719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="closeButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="T6u-Uy-M6a"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,7 +81,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="87" y="270"/>
+            <connections>
+                <outlet property="ipLabel" destination="jJF-6h-agG" id="w7t-BM-BYu"/>
+            </connections>
+            <point key="canvasLocation" x="29" y="230"/>
         </view>
     </objects>
     <resources>
