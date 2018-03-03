@@ -9,6 +9,7 @@
 import UIKit
 import GCDWebServers.GCDWebUploader
 import SnapKit
+import AVFoundation
 
 class DownloadViewController: UIViewController {
 
@@ -83,7 +84,42 @@ extension DownloadViewController {
     
     func fetchFileNames() {
         let subpaths = FileManager.default.subpaths(atPath: documentsPath)
-        dataSource = subpaths ?? []
+        let dataSource = subpaths ?? []
+        
+        for i in dataSource {
+            let url = URL(fileURLWithPath: documentsPath + "/\(i)")
+            let mp3Asset = AVAsset(url: url)
+            print("歌词：",mp3Asset.lyrics)
+            for format in mp3Asset.availableMetadataFormats {
+                for item in mp3Asset.metadata(forFormat: format) {
+                    print(item.commonKey?.rawValue)
+                    // 歌曲图片
+                    if item.commonKey?.rawValue == "artwork" {
+                        if let data = item.value as? Data {
+                            let image = UIImage(data: data)
+                            print(image)
+                        }
+                    }
+                    // 专辑名称
+                    if item.commonKey?.rawValue == "albumName" {
+                        print(item.value)
+                    }
+                    // 艺术家
+                    if item.commonKey?.rawValue == "artist" {
+                        print(item.value)
+                    }
+                    // 歌曲名称
+                    if item.commonKey?.rawValue == "title" {
+                        print(item.value)
+                    }
+                }
+            }
+                
+            
+            
+        }
+        
+        
         tableView.reloadData()
     }
 }
@@ -150,5 +186,10 @@ extension DownloadViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(type: UITableViewCell.self, forIndexPath: indexPath)
         cell.textLabel?.text = dataSource[indexPath.row]
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let name = dataSource[indexPath.row]
+        let path = documentsPath + "/\(name)"
+        MusicOperationTool.shared.playMusic(with: path)
     }
 }

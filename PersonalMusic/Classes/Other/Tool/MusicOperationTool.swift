@@ -63,10 +63,20 @@ class MusicOperationTool: NSObject {
     ///
     /// - Parameter model: 音乐数据模型
     func playMusic(with model: MusicModel) {
-        currentPlayer = audioTool.playAudio(with: model.filename)
+        guard let url = Bundle.main.url(forResource: model.filename, withExtension: nil) else {
+            return
+        }
+        
+        currentPlayer = audioTool.playAudio(with: url)
         currentPlayIndex = musicMs.index(of: model) ?? 0
     }
     
+    func playMusic(with filePath: String) {
+        guard let url = URL(string: filePath) else {
+            return
+        }
+        currentPlayer = audioTool.playAudio(with: url)
+    }
     
     /// 暂停当前正在播放的音乐
     func pauseCurrentMusic() {

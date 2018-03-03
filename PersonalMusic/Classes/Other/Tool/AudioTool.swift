@@ -31,10 +31,8 @@ class AudioTool: NSObject {
     ///
     /// - Parameter fileName: 歌曲文件名称
     /// - Returns: 播放器(用于外界获取播放进度信息)
-    func playAudio(with fileName: String) -> AVAudioPlayer? {
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: nil) else {
-            return nil
-        }
+    func playAudio(with url: URL) -> AVAudioPlayer? {
+       
         if player?.url == url {
             player?.play()
             return player
