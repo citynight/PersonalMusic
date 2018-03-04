@@ -131,8 +131,14 @@ extension MusicDetailViewController {
         }
         title = musicModel.title
         lrcMs = LrcDataTool.getLrcModelsWithFileName(musicModel.lrcname)
-        self.backImageView.image = UIImage(named:musicModel.icon)
-        self.centerImageView.image = UIImage(named:musicModel.icon)
+        if let image = musicModel.iconImage {
+            self.backImageView.image = image
+            self.centerImageView.image = image
+        }else {
+            self.backImageView.image = UIImage(named:musicModel.icon)
+            self.centerImageView.image = UIImage(named:musicModel.icon)
+        }
+        
         self.totalTimeLabel.text = TimeTool.getFormatTime(timeInterval: messageModel.totalTime)
         
         beginRotation()
@@ -180,6 +186,9 @@ extension MusicDetailViewController {
 extension MusicDetailViewController {
     private func updateLrc() {
         let messageModel = MusicOperationTool.shared.getMusicMsgModel()
+        if (messageModel.musicM?.lrcname.isEmpty)! {
+            return
+        }
         let time = messageModel.costTime
         let trouble = LrcDataTool.getCurrentLrcM(currentTime: time, lrcMs: lrcMs)
         if trouble.row == lrcRow && !lrcLabel.text!.isEmpty {

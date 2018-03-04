@@ -81,6 +81,7 @@ extension MusicListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.musicList[indexPath.row]
+        MusicOperationTool.shared.musicMs = musicList
         MusicOperationTool.shared.playMusic(with: model)
         let vc = MusicDetailViewController(nibName: "MusicDetailViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)

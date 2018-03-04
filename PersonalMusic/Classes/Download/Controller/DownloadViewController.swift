@@ -197,5 +197,7 @@ extension DownloadViewController: UITableViewDelegate,UITableViewDataSource {
         let model = dataSource[indexPath.row]
         MusicOperationTool.shared.musicMs = dataSource
         MusicOperationTool.shared.playMusic(with: model)
+        let vc = MusicDetailViewController(nibName: "MusicDetailViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
