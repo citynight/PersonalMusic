@@ -129,7 +129,7 @@ extension MusicDetailViewController {
             title = ""
             return
         }
-        title = musicModel.name
+        title = musicModel.title
         lrcMs = LrcDataTool.getLrcModelsWithFileName(musicModel.lrcname)
         self.backImageView.image = UIImage(named:musicModel.icon)
         self.centerImageView.image = UIImage(named:musicModel.icon)

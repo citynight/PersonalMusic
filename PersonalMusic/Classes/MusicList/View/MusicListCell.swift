@@ -17,8 +17,8 @@ class MusicListCell: UITableViewCell {
     
     // MARK: - 数据
     func show(musicInfo music: MusicModel) {
-        self.singerNameLabel.text = music.singer
-        self.songNameLabel.text = music.name
+        self.singerNameLabel.text = music.artist
+        self.songNameLabel.text = music.title
         self.iconImageView.image = UIImage(named:music.singerIcon)
     }
     override func awakeFromNib() {

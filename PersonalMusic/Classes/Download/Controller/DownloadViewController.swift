@@ -26,7 +26,7 @@ class DownloadViewController: UIViewController {
     }()
     
     private var webServer: GCDWebUploader?
-    private lazy var dataSource:[String] = []
+    private lazy var dataSource:[MusicModel] = []
     
     private lazy var documentsPath: String = {
         guard let documentsPathStr = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentationDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first else {
@@ -36,6 +36,7 @@ class DownloadViewController: UIViewController {
         if !FileManager.default.fileExists(atPath: documentsPath) {
             try? FileManager.default.createDirectory(atPath: documentsPath, withIntermediateDirectories: true, attributes: nil)
         }
+        print("歌曲文件路径:",documentsPath)
         return documentsPath
     }()
     
@@ -85,41 +86,46 @@ extension DownloadViewController {
     func fetchFileNames() {
         let subpaths = FileManager.default.subpaths(atPath: documentsPath)
         let dataSource = subpaths ?? []
+        var tempMusics = [MusicModel]()
         
         for i in dataSource {
             let url = URL(fileURLWithPath: documentsPath + "/\(i)")
             let mp3Asset = AVAsset(url: url)
-            print("歌词：",mp3Asset.lyrics)
+            let music = MusicModel()
+            music.filePath = url
             for format in mp3Asset.availableMetadataFormats {
                 for item in mp3Asset.metadata(forFormat: format) {
-                    print(item.commonKey?.rawValue)
+                    
                     // 歌曲图片
                     if item.commonKey?.rawValue == "artwork" {
                         if let data = item.value as? Data {
                             let image = UIImage(data: data)
-                            print(image)
+                            music.iconImage = image
                         }
                     }
                     // 专辑名称
                     if item.commonKey?.rawValue == "albumName" {
-                        print(item.value)
+                        if let value = item.value {
+                            music.albumName = String(describing: value)
+                        }
                     }
                     // 艺术家
                     if item.commonKey?.rawValue == "artist" {
-                        print(item.value)
+                        if let value = item.value {
+                            music.artist = String(describing: value)
+                        }
                     }
                     // 歌曲名称
                     if item.commonKey?.rawValue == "title" {
-                        print(item.value)
+                        if let value = item.value {
+                            music.title = String(describing: value)
+                        }
                     }
                 }
             }
-                
-            
-            
+            tempMusics.append(music)
         }
-        
-        
+        self.dataSource = tempMusics
         tableView.reloadData()
     }
 }
@@ -184,12 +190,12 @@ extension DownloadViewController: UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(type: UITableViewCell.self, forIndexPath: indexPath)
-        cell.textLabel?.text = dataSource[indexPath.row]
+        cell.textLabel?.text = dataSource[indexPath.row].artist
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let name = dataSource[indexPath.row]
-        let path = documentsPath + "/\(name)"
-        MusicOperationTool.shared.playMusic(with: path)
+        let model = dataSource[indexPath.row]
+        MusicOperationTool.shared.musicMs = dataSource
+        MusicOperationTool.shared.playMusic(with: model)
     }
 }

@@ -63,7 +63,7 @@ class MusicOperationTool: NSObject {
     ///
     /// - Parameter model: 音乐数据模型
     func playMusic(with model: MusicModel) {
-        guard let url = Bundle.main.url(forResource: model.filename, withExtension: nil) else {
+        guard let url = model.filePath else {
             return
         }
         
@@ -71,12 +71,12 @@ class MusicOperationTool: NSObject {
         currentPlayIndex = musicMs.index(of: model) ?? 0
     }
     
-    func playMusic(with filePath: String) {
-        guard let url = URL(string: filePath) else {
-            return
-        }
-        currentPlayer = audioTool.playAudio(with: url)
-    }
+//    func playMusic(with filePath: String) {
+//        guard let url = URL(string: filePath) else {
+//            return
+//        }
+//        currentPlayer = audioTool.playAudio(with: url)
+//    }
     
     /// 暂停当前正在播放的音乐
     func pauseCurrentMusic() {
@@ -112,8 +112,8 @@ class MusicOperationTool: NSObject {
         let center = MPNowPlayingInfoCenter.default()
         
         // 2. 给锁屏中心赋值
-        let musicName = musicMessageM.musicM?.name ?? ""
-        let singerName = musicMessageM.musicM?.singer ?? ""
+        let musicName = musicMessageM.musicM?.title ?? ""
+        let singerName = musicMessageM.musicM?.artist ?? ""
         let costTime = musicMessageM.costTime
         let totalTime = musicMessageM.totalTime
         let imageName = musicMessageM.musicM?.icon ?? ""
