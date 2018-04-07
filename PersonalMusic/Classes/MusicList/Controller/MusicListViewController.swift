@@ -61,6 +61,21 @@ extension MusicListViewController {
     func configNav() {
         self.navigationController?.setNavigationAlpha(1)
         self.navigationController?.setTitleColor(UIColor.black)
+        guard let subviews =  navigationController?.navigationBar.subviews else {
+            return
+        }
+        
+        for view in subviews {
+            if view.isKind(of: NSClassFromString("_UINavigationBarContentView")!) {
+                for temp in view.subviews {
+                    if temp.isKind(of: NSClassFromString("_UIButtonBarStackView")!) {
+                        temp.subviews.forEach({ (sss) in
+                            sss.alpha = 1
+                        })
+                    }
+                }
+            }
+        }
     }
     
     @objc func gotoDownload() {

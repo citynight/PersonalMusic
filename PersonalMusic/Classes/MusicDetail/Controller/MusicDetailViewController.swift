@@ -191,7 +191,11 @@ extension MusicDetailViewController {
         }
         let time = messageModel.costTime
         let trouble = LrcDataTool.getCurrentLrcM(currentTime: time, lrcMs: lrcMs)
-        if trouble.row == lrcRow && !lrcLabel.text!.isEmpty {
+        
+        let text = lrcLabel.text ?? ""
+        
+        
+        if trouble.row == lrcRow && !text.isEmpty {
             return
         }
         let lrcM = trouble.lrcM

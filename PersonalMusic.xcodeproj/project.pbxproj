@@ -70,24 +70,24 @@
 		B294BC5F2039B49A00FDF993 /* LrcDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */; };
 		B294BC612039B50F00FDF993 /* LrcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC602039B50F00FDF993 /* LrcModel.swift */; };
 		B294BC63203DB0A400FDF993 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294BC62203DB0A400FDF993 /* ImageTool.swift */; };
-		EE3D1D802048DECD000DE54F /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */; };
-		EE3D1D812048DECD000DE54F /* GCDWebServers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE3D1D8620491D2A000DE54F /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D1D8520491D2A000DE54F /* DownloadViewController.swift */; };
 		EE3D1D8920493ED4000DE54F /* DownloadTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D1D8820493ED4000DE54F /* DownloadTipView.swift */; };
 		EE3D1D8B20493EE3000DE54F /* DownloadTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE3D1D8A20493EE3000DE54F /* DownloadTipView.xib */; };
-		EE8005B020499DFC002FC6E9 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8005AF20499DFC002FC6E9 /* SnapKit.framework */; };
-		EE8005B120499DFC002FC6E9 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE8005AF20499DFC002FC6E9 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE536B5C2078741C0075CEAC /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE536B5B2078741C0075CEAC /* GCDWebServers.framework */; };
+		EE536B5D2078741C0075CEAC /* GCDWebServers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE536B5B2078741C0075CEAC /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE536B60207874330075CEAC /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE536B5F207874320075CEAC /* SnapKit.framework */; };
+		EE536B61207874330075CEAC /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE536B5F207874320075CEAC /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EE3D1D822048DECD000DE54F /* Embed Frameworks */ = {
+		EE536B5E2078741C0075CEAC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EE3D1D812048DECD000DE54F /* GCDWebServers.framework in Embed Frameworks */,
-				EE8005B120499DFC002FC6E9 /* SnapKit.framework in Embed Frameworks */,
+				EE536B5D2078741C0075CEAC /* GCDWebServers.framework in Embed Frameworks */,
+				EE536B61207874330075CEAC /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,11 +160,11 @@
 		B294BC5E2039B49A00FDF993 /* LrcDataTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcDataTool.swift; sourceTree = "<group>"; };
 		B294BC602039B50F00FDF993 /* LrcModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LrcModel.swift; sourceTree = "<group>"; };
 		B294BC62203DB0A400FDF993 /* ImageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
-		EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
 		EE3D1D8520491D2A000DE54F /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		EE3D1D8820493ED4000DE54F /* DownloadTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTipView.swift; sourceTree = "<group>"; };
 		EE3D1D8A20493EE3000DE54F /* DownloadTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTipView.xib; sourceTree = "<group>"; };
-		EE8005AF20499DFC002FC6E9 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		EE536B5B2078741C0075CEAC /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
+		EE536B5F207874320075CEAC /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE3D1D802048DECD000DE54F /* GCDWebServers.framework in Frameworks */,
-				EE8005B020499DFC002FC6E9 /* SnapKit.framework in Frameworks */,
+				EE536B5C2078741C0075CEAC /* GCDWebServers.framework in Frameworks */,
+				EE536B60207874330075CEAC /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,8 +183,8 @@
 		B21ECB072030483E0017CB94 = {
 			isa = PBXGroup;
 			children = (
-				EE8005AF20499DFC002FC6E9 /* SnapKit.framework */,
-				EE3D1D7F2048DECD000DE54F /* GCDWebServers.framework */,
+				EE536B5F207874320075CEAC /* SnapKit.framework */,
+				EE536B5B2078741C0075CEAC /* GCDWebServers.framework */,
 				B21ECB122030483E0017CB94 /* PersonalMusic */,
 				B21ECB112030483E0017CB94 /* Products */,
 			);
@@ -458,7 +458,7 @@
 				B21ECB0C2030483E0017CB94 /* Sources */,
 				B21ECB0D2030483E0017CB94 /* Frameworks */,
 				B21ECB0E2030483E0017CB94 /* Resources */,
-				EE3D1D822048DECD000DE54F /* Embed Frameworks */,
+				EE536B5E2078741C0075CEAC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
